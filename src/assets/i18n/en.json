@@ -1,0 +1,29 @@
+{
+  "LoginPage": {
+    "pageTitle": "Sign In",
+    "description": "Enter details below to continue Sign in!",
+    "emailLabel": "Email ID",
+    "passwordLabel": "Password",
+    "forgettxt": "Forgot Password?",
+    "btnTxt": "SIGN IN"
+  },
+  "ForgotPasswordPage": {
+    "pageTitle": "Forgot Password",
+    "description": "Please enter the email address that associated with your account. We will send you 4-digit code on your email to reset your password.",
+    "emailLabel": "Email ID",
+    "btnTxt": "GET THE CODE",
+    "backbtnTxt": "BACK"
+  },
+  "VerificationPage": {
+    "pageTitle": "Verification",
+    "description": "Please enter the code that we just sent on your email address.",
+    "btnTxt": "VERIFY",
+    "backbtnTxt": "BACK"
+  },
+  "ResetPasswordPage": {
+    "pageTitle": "Reset Password",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "btnTxt": "RESET"
+  }
+}

@@ -1,0 +1,77 @@
+@import "../../../../../styles/colors.scss";
+
+::-webkit-scrollbar {
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.side-container {
+  padding: 1.5rem 0px;
+  position: relative;
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  background: $primary-color;
+  height: 100%;
+
+  .logoImg {
+    width: 140px;
+  }
+
+  section {
+    flex: 1;
+    overflow-y: scroll;
+    ul {
+      flex-direction: column;
+      padding: 0px;
+      li {
+        list-style: none;
+        font-weight: 500;
+        margin: 8px 0px;
+        padding: 14px 12px;
+        font-size: 15px;
+        position: relative;
+        color: $white;
+
+        &:hover {
+          color: $primary-color;
+          background: #f3f3f3;
+          font-weight: 800;
+
+          > div .navicon {
+            display: none !important;
+          }
+          > div .navicon-active {
+            display: block !important;
+          }
+        }
+
+        div img {
+          width: 19px;
+          height: 19px;
+        }
+
+        &.active {
+          color: $primary-color;
+          background: $white;
+          font-weight: 800;
+
+          .navicon {
+            display: none;
+          }
+          .navicon-active {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navicon-active {
+  display: none;
+}
+.navicon {
+  display: block;
+}

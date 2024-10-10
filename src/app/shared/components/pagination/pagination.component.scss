@@ -1,0 +1,54 @@
+@import "../../../../styles/colors.scss";
+
+.pagination {
+  display: flex;
+  width: 100%;
+  background: $white 0% 0% no-repeat padding-box;
+  box-shadow: 0px -5px 6px #0000001a;
+  padding: 20px 36px;
+  font-size: 14px;
+  align-items: center;
+  font-weight: 600;
+
+  .left {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+
+  .right {
+    margin: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+}
+
+.item-bg {
+  background-color: $primary-color;
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px 6px;
+}
+
+:host::ng-deep.mat-select {
+  background-color: $primary-color;
+  color: white;
+  width: 52px;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-weight: 500;
+}
+
+:host::ng-deep.mat-select-value-text {
+  color: #fff;
+}
+
+.down {
+  position: absolute;
+  right: 8px;
+  top: 9px;
+}

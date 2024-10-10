@@ -1,0 +1,40 @@
+<div class="d-flex mx-5 justify-center align-center">
+  <div>
+    <div class="text-center font-38 black forgot fw-bold quicksand">
+      {{ localization.pageTitle | localization }}
+    </div>
+    <div class="font-14 mt-4 text-center grey">
+      {{ localization.description | localization }}
+    </div>
+    <div class="mt-4">
+      <form class="mt-4 form" [formGroup]="form">
+        <form-field [errorControl]="form.get('email')" name="email address">
+          <label for="email" class="form-label fw-6">{{
+            localization.emailLabel | localization
+          }}</label>
+          <input
+            type="text"
+            [placeholder]="localization.emailLabel | localization"
+            formControlName="email"
+            class="form-control input font-14"
+          />
+        </form-field>
+      </form>
+    </div>
+    <div class="mt-5 justify-between align-center">
+      <div class="font-14 cursor l-grey fw-6" routerLink="../log-in">
+        {{ localization.backbtnTxt | localization }}
+      </div>
+      <button class="theme-btn theme-bg-color white" (click)="forgot()">
+        {{ localization.btnTxt | localization }}
+        <mat-spinner
+          class="btn-spinner"
+          *ngIf="isLoading"
+          [diameter]="16"
+          [strokeWidth]="2"
+        >
+        </mat-spinner>
+      </button>
+    </div>
+  </div>
+</div>

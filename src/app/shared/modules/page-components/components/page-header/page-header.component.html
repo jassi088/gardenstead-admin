@@ -1,0 +1,17 @@
+<div class="justify-end align-center bg-white py-2 px-4">
+  <div>
+    <ng-content></ng-content>
+  </div>
+
+  <div class="align-center cursor">
+    <a [routerLink]="['/admin/profile']">
+      <img class="activeuserImg" src="assets/images/placeholder_img.svg" />
+    </a>
+    <div class="font-17 fw-6 l-grey px-2">{{ admin }}</div>
+    <mat-icon
+      class="l-grey mr-4"
+      (click)="this.localStorageService.clearAdmin()"
+      >logout</mat-icon
+    >
+  </div>
+</div>

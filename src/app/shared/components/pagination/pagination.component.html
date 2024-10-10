@@ -1,0 +1,43 @@
+<div class="pagination">
+  <div class="left">
+    <span (click)="previous()"
+      ><img
+        class="cursor"
+        [src]="
+          disable('previous')
+            ? '/assets/images/light-previous.svg'
+            : '/assets/images/ic_back.svg'
+        "
+    /></span>
+    <span class="fw-7 black px-3"> {{ pageNo }} of {{ totalPages }} Page</span>
+    <span (click)="next()"
+      ><img
+        class="cursor"
+        [src]="
+          disable('next')
+            ? '/assets/images/ic_next.svg'
+            : '/assets/images/dark-next.svg'
+        "
+    /></span>
+  </div>
+  <div class="justify-end right">
+    <span class="pr-2 fw-7 black font-14">Items per page </span>
+    <div class="pagn" (click)="select.open()">
+      <img src="/assets/images/down-white.svg" class="down" />
+      <mat-select
+        class="footer-select pointer"
+        #select
+        (selectionChange)="setPage()"
+        [(ngModel)]="pageSize"
+      >
+        <mat-option
+          *ngFor="let item of pageSizeOptions"
+          class="ml-2"
+          [value]="item"
+          >{{ item }}</mat-option
+        >
+      </mat-select>
+    </div>
+    <!-- <span class="item-bg">{{ pageSize }}</span> -->
+  </div>
+</div>

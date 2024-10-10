@@ -1,0 +1,155 @@
+<page-container>
+  <page-header></page-header>
+
+  <page-content class="mb-3 p-static">
+    <div class="page-section pl-1 pt-3">
+      <div class="justify-between">
+        <div>
+          <div class="page-title">Users</div>
+          <div class="page-description">List of all users on Gardenstead</div>
+        </div>
+      </div>
+      <div class="table">
+        <div class="p-abs">
+          <div class="search-input mr-4">
+            <img src="assets/images/search.svg" alt="" />
+            <input
+              type="search"
+              placeholder="Search Name..."
+              [(ngModel)]="profiles.filters.properties['search'].value"
+              (input)="fetch()"
+            />
+          </div>
+          <div class="filter p-realtive align-center">
+            <span class="pr-2 fw-6 l-grey">Status : </span>
+            <img
+              class="down"
+              (click)="select.open()"
+              src="assets\images\down.svg"
+              alt=""
+            />
+            <mat-select
+              #select
+              [placeholder]="'All'"
+              (selectionChange)="fetch()"
+              [(ngModel)]="profiles.filters.properties['status'].value"
+            >
+              <mat-option [value]="''">All</mat-option>
+              <mat-option *ngFor="let item of status" [value]="item?.value">{{
+                item?.label
+              }}</mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="w-20">USER DETAILS</th>
+              <th>EMAIL</th>
+              <th class="center">CURRENT STATUS</th>
+            </tr>
+          </thead>
+
+          <tbody *ngIf="!profiles?.isLoading">
+            <!-- routerLink="user-detail/{{ item?.id }}" -->
+            <tr
+              *ngFor="let item of profiles?.items; let i = index"
+              class="cursor"
+            >
+              <td>
+                <div class="align-center">
+                  <div class="font-13 black pl-2 cursor break-word">
+                    {{ item?.fullName || "--" | titlecase }}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="txt">{{ item?.user?.email || "--" }}</span>
+              </td>
+              <td>
+                <div class="box-center">
+                  <div class="status align-center" [ngClass]="item.status">
+                    {{ item?.status | titlecase }}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <mat-icon
+                  *ngIf="item.status != 'deleted'"
+                  class="align-bottom"
+                  (click)="$event.preventDefault(); $event.stopPropagation()"
+                  [matMenuTriggerFor]="menu"
+                  >more_vert
+                </mat-icon>
+                <mat-menu class="side-menu" #menu="matMenu">
+                  <!-- <button
+                    class="side-menu"
+                    mat-menu-item
+                    routerLink="edit-user/{{ item?.id }}"
+                  >
+                    Edit Details
+                  </button> -->
+                  <button
+                    class="side-menu"
+                    *ngIf="item?.status == 'active'"
+                    mat-menu-item
+                    (click)="confirmationStatus(item?.id, 'inactive')"
+                  >
+                    Inactive
+                  </button>
+                  <button
+                    class="side-menu"
+                    *ngIf="item?.status != 'active'"
+                    mat-menu-item
+                    (click)="confirmationStatus(item?.id, 'active')"
+                  >
+                    Active
+                  </button>
+
+                  <button
+                    class="side-menu"
+                    mat-menu-item
+                    (click)="confirmation(item?.id)"
+                  >
+                    Delete User
+                  </button>
+                </mat-menu>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          *ngIf="!profiles.items.length && !profiles?.isLoading"
+          class="text-center fw-6 font-18 pt-4 mh-100 page-height"
+        >
+          No data found !
+        </div>
+        <div
+          class="pt-4 text-center lightloader page-height"
+          *ngIf="profiles?.isLoading"
+        >
+          <mat-spinner
+            class="loading mx-auto"
+            [diameter]="36"
+            [strokeWidth]="2"
+          >
+          </mat-spinner>
+        </div>
+      </div>
+    </div>
+
+    <div class="plusimg invisible">
+      <img
+        src="assets\images\add.svg"
+        [routerLink]="['/admin/user/add-user']"
+      />
+    </div>
+  </page-content>
+  <app-pagination
+    [(pageNo)]="profiles.pageNo"
+    [(pageSize)]="profiles.pageSize"
+    (page)="fetch()"
+    [totalRecords]="profiles.totalRecords"
+    [isLoading]="profiles.isLoading"
+  ></app-pagination>
+</page-container>

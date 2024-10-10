@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 8px;
+  .form-group {
+    display: flex;
+    width: 100%;
+    border: 1px solid #8888881a;
+    padding: 5px 8px;
+    border-radius: 4px;
+    align-items: center;
+    margin-bottom: 7px;
+    background-color: #f5f5f5;
+    &.radius {
+      border-radius: 30px;
+      padding: 10px 10px;
+    }
+    .form-control-wapper {
+      flex: 1;
+    }
+    .form-prefix,
+    .form-append {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .error {
+    color: red;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
+
+:host ::ng-deep {
+  input,
+  .mat-select,
+  textarea {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 2px 0px;
+    height: 25px;
+    background-color: transparent;
+    color: #000;
+  }
+}
+:host::ng-deep.textarea {
+  resize: none;
+}

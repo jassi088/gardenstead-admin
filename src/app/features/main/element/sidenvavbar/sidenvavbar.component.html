@@ -1,0 +1,27 @@
+<div class="side-container justify-between">
+  <div class="flex1">
+    <div class="text-center">
+      <img class="logoImg" src="assets/images/logo.png" alt="" />
+    </div>
+    <section>
+      <ul>
+        <li
+          class="cursor"
+          *ngFor="let item of tabs"
+          [routerLink]="item.navigation"
+          routerLinkActive="active"
+        >
+          <div class="align-center items">
+            <div class="pl-2">
+              <img class="navicon font-15" src="{{ item.grayImg }}" />
+              <img class="navicon-active font-15" src="{{ item.activeImg }}" />
+            </div>
+            <div class="pl-3">
+              {{ item.title }}
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

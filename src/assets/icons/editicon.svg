@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Group_1706" data-name="Group 1706" transform="translate(-1177 -187)">
+    <g id="Rectangle_46" data-name="Rectangle 46" transform="translate(1177 187)" fill="#ae4541" stroke="#fff" stroke-width="1">
+      <rect width="26" height="26" rx="13" stroke="none"/>
+      <rect x="0.5" y="0.5" width="25" height="25" rx="12.5" fill="none"/>
+    </g>
+    <path id="Icon_material-mode-edit" data-name="Icon material-mode-edit" d="M4.5,13.743v2.433H6.933L14.109,9,11.676,6.568ZM15.99,7.119a.646.646,0,0,0,0-.915L14.472,4.686a.646.646,0,0,0-.915,0L12.37,5.873,14.8,8.306Z" transform="translate(1179.5 189.504)" fill="#fff"/>
+  </g>
+</svg>

@@ -1,0 +1,243 @@
+<page-container>
+  <page-header></page-header>
+  <page-content>
+    <div class="mt-4 pl-1">
+      <div class="table">
+        <div class="p-abs">
+          <div class="cursor">
+            <img
+              src="assets/images/back-arrowicon.svg"
+              [routerLink]="['/admin/user']"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-5">
+            <div class="fw-7 apple-blossom font-24">
+              {{ id ? "Edit" : "Add" }} new user
+            </div>
+            <div class="pt-3 grey font-18 fw-6">
+              Enter details to {{ id ? "edit" : "add new" }} user
+            </div>
+            <div class="fw-7 font-18 mt-4">User details</div>
+          </div>
+        </div>
+        <hr />
+        <form [formGroup]="form">
+          <div class="row">
+            <!-- <div class="col-md-2">
+              <div class="p-relative"> -->
+            <!-- <file-uploader
+                  (onUploadFile)="upload_img($event)"
+                  #uploader="FileUploader"
+                  [successMessage]="'Image uploaded successfully'"
+                >
+                </file-uploader>
+                <image-cropper #cropper="ImageCropper"></image-cropper>
+                <select-file-btn
+                  #selectFile
+                  [fileUploader]="uploader"
+                  [cropper]="cropper"
+                  [uploaderOption]="{ fileType: 'image' }"
+                  (onUploadFile)="
+                    form.get('imgUrl')?.setValue($event[0].fileUrl)
+                  "
+                >
+                </select-file-btn> -->
+            <!-- <img
+                  (click)="selectFile.selectFile()"
+                  [src]="formValue?.imgUrl"
+                  class="user-img"
+                  *ngIf="formValue?.imgUrl"
+                /> -->
+
+            <!-- <img
+                  *ngIf="!formValue?.upload?.fileUrl"
+                  (click)="selectFile.selectFile()"
+                  src="/assets/images/placeholder_img.svg"
+                  class="user-img"
+                /> -->
+            <!-- <img
+                  src="assets/icons/editicon.svg"
+                  (click)="selectFile.selectFile()"
+                  class="edit-icon cursor"
+                /> -->
+            <!-- </div>
+            </div> -->
+            <div class="col-md-5">
+              <div class="form-outer">
+                <div>
+                  <form-field
+                    class="w-100 pr-3"
+                    [errorControl]="form.get('name')"
+                    name="first name"
+                  >
+                    <label class="font-14 fw-7 black form-label"
+                      >First Name</label
+                    >
+                    <input
+                      [maxLength]="100"
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                      placeholder="First Name"
+                    />
+                  </form-field>
+                </div>
+
+                <div>
+                  <label class="font-14 fw-7 black form-label mb-0"
+                    >Contact Number
+                  </label>
+                  <div class="d-flex">
+                    <countryList #countryList="countryList"></countryList>
+                    <div class="d-flex p-relative pt-2">
+                      <img
+                        class="down-country"
+                        (click)="select.open()"
+                        src="assets\images\down.svg"
+                        alt=""
+                      />
+                      <mat-select
+                        #select
+                        formControlName="countryCode"
+                        class="country-select mr-2 mat-select-placeholder"
+                        placeholder="1"
+                      >
+                        <mat-option
+                          *ngFor="let item of countryList?.list"
+                          value="{{ item?.callingCodes }}"
+                          >+{{ item?.callingCodes }}</mat-option
+                        >
+                      </mat-select>
+                    </div>
+
+                    <div class="align-center w-100">
+                      <form-field
+                        class="w-100 pr-3"
+                        [errorControl]="form.get('phone')"
+                        name="contact number"
+                      >
+                        <input
+                          [maxLength]="15"
+                          type="text"
+                          class="form-control"
+                          formControlName="phone"
+                          placeholder="Contact Number"
+                        />
+                      </form-field>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="field-outer">
+                  <label>Select Role</label>
+                  <div class="d-flex p-relative">
+                    <img
+                      class="down"
+                      (click)="select.open()"
+                      src="assets\images\down.svg"
+                      alt=""
+                    />
+                    <mat-select
+                      #select
+                      class="role-select mr-2"
+                      placeholder="Select Role"
+                      formControlName="roleId"
+                    >
+                      <mat-option
+                        *ngFor="let item of list?.items"
+                        [value]="item?.id"
+                        >{{ item?.name | titlecase }}</mat-option
+                      >
+                    </mat-select>
+                  </div>
+                </div> -->
+
+                <form-field
+                  class="w-100"
+                  [errorControl]="form.get('roleId')"
+                  name="role"
+                >
+                  <label class="font-14 fw-7 black form-label"
+                    >Select Role</label
+                  >
+                  <mat-select
+                    formControlName="roleId"
+                    #select1
+                    class="form-control"
+                    placeholder="Select Role"
+                  >
+                    <mat-option
+                      *ngFor="let item of list?.items"
+                      [value]="item?.id"
+                      >{{ item?.name }}
+                    </mat-option>
+                  </mat-select>
+                  <span class="form-append"
+                    ><img
+                      (click)="select1.open()"
+                      src="assets\images\down.svg"
+                      alt=""
+                  /></span>
+                </form-field>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-outer">
+                <div>
+                  <form-field
+                    class="w-100 align-center"
+                    [errorControl]="form.get('lastName')"
+                    name="last name"
+                  >
+                    <label class="font-14 fw-7 black form-label"
+                      >Last Name</label
+                    >
+                    <input
+                      [maxLength]="100"
+                      type="text"
+                      class="form-control"
+                      formControlName="lastName"
+                      placeholder="Last Name"
+                    />
+                  </form-field>
+                </div>
+
+                <div class="">
+                  <form-field
+                    class="w-100 align-center"
+                    [errorControl]="form.get('email')"
+                    name="email address"
+                  >
+                    <label class="font-14 fw-7 black form-label"
+                      >Email Address</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      formControlName="email"
+                      placeholder="Email Address"
+                    />
+                  </form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="row">
+          <div class="col-md-12 text-center my-5">
+            <button class="theme-btn red" *ngIf="!id" (click)="createUser()">
+              ADD USER
+            </button>
+            <button class="theme-btn red" *ngIf="id" (click)="updateUser()">
+              SAVE DETAILS
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </page-content>
+</page-container>

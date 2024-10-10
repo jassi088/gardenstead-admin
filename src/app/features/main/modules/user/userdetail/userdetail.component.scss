@@ -1,0 +1,98 @@
+@import "../../../../../../styles/colors.scss";
+@import "../../../../../../styles/layout.scss";
+
+.p-abs {
+  left: 18px;
+}
+.status {
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+  min-width: 105px;
+  justify-content: center;
+
+  &.active {
+    padding: 0.3rem;
+    .dot::before {
+      background-color: #20c05b;
+    }
+  }
+  .dot::before {
+    content: "";
+    font-size: 13px;
+    width: 6px;
+    border-radius: 50%;
+    height: 6px;
+  }
+}
+.table {
+  padding: 0.5rem 2rem;
+}
+.user-img {
+  border-radius: 50%;
+  border: 1px solid #ae4541;
+}
+.title {
+  border-top: 1px solid #e2e2e2;
+}
+.brand-box {
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+}
+.brand-img {
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+}
+.status {
+  border-radius: 7px;
+  padding: 0.3rem 1.5rem;
+  font-weight: 600;
+  justify-content: center;
+  position: relative;
+  width: 110px;
+  padding-left: 38px;
+  &.active {
+    background-color: #f2f2f2;
+    &:before {
+      background-color: #20c05b;
+    }
+  }
+  &.inactive {
+    background-color: #a1a1a1;
+    color: #fff;
+    &:before {
+      background-color: #fff;
+    }
+  }
+  &.pending {
+    background-color: #a1a1a1;
+    color: #fff;
+    &:before {
+      background-color: #fff;
+    }
+  }
+  &.deleted {
+    background-color: #f2f2f2;
+    color: red;
+    &:before {
+      background-color: red;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 28px;
+    width: 6px;
+    padding: 3px;
+    border-radius: 50%;
+    height: 6px;
+  }
+}
+
+.break-all {
+  word-break: break-all;
+}

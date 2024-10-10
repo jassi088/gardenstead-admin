@@ -1,0 +1,13 @@
+@import "../../../../../../styles/colors.scss";
+
+.activeuserImg {
+  border: 2px solid $blue;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  padding: 2px;
+}
+
+:host::ng-deep.mat-icon {
+  height: 25px;
+}

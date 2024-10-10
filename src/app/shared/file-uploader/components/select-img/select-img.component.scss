@@ -1,0 +1,57 @@
+.add-img {
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 102px;
+    width: 102px;
+}
+
+.box-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-img {
+    width: 102px;
+    height: 102px;
+    border-radius: 12px;
+}
+.red-check {
+    position: absolute;
+    right: -68px;
+    top: 7px;
+}
+.scroll {
+    height: 34vh;
+    overflow-y: auto;
+}
+
+select-file-btn {
+    display: none;
+}
+// scroll-bar grey
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ececec;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent linear-gradient(180deg, #aa6c61 0%, #9f1814 100%) 0% 0% no-repeat padding-box;
+}
+file-uploader {
+    display: none;
+}
+image-cropper {
+    display: none;
+}

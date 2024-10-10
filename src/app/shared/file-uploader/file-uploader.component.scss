@@ -1,0 +1,29 @@
+.view-image {
+    width: 80px;
+    height:84px;
+    object-fit:cover;
+}
+
+video {
+    background-color: black;
+}
+.file {
+    display: flex;
+    border: 2px solid #929292;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.progress-bar-outer {
+    box-shadow: inset 0px 0px 8px 0px #d4d4d4;
+    width: 100%;
+    border-radius: 20px;
+}
+.progress {
+    width: 80%;
+    text-align: right; 
+    border-radius: 20px;
+    height: 100%;
+    padding: 2px 20px;
+    background: transparent linear-gradient(-270deg, #fa6a65 0%, #fab62a 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+}

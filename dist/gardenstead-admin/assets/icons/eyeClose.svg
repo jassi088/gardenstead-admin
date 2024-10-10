@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.676" height="14.756" viewBox="0 0 18.676 14.756">
+  <g id="Group_1120" data-name="Group 1120" transform="translate(-684.003 -502)">
+    <g id="eye_1_" data-name="eye (1)" transform="translate(684.5 497.586)">
+      <path id="Path_19721" data-name="Path 19721" d="M16.4,10.975a9.116,9.116,0,0,0-15.792,0,.774.774,0,0,0,0,.774,9.116,9.116,0,0,0,15.792,0A.774.774,0,0,0,16.4,10.975ZM8.5,14.761a7.594,7.594,0,0,1-6.316-3.4,7.567,7.567,0,0,1,12.632,0,7.594,7.594,0,0,1-6.316,3.4Z" fill="#888"/>
+      <path id="Path_19722" data-name="Path 19722" d="M13.313,10.446a2.866,2.866,0,1,0,2.866,2.866A2.866,2.866,0,0,0,13.313,10.446Zm0,4.184a1.318,1.318,0,1,1,1.318-1.318,1.318,1.318,0,0,1-1.318,1.318Z" transform="translate(-4.813 -1.951)" fill="#888"/>
+    </g>
+    <g id="Group_1119" data-name="Group 1119" transform="translate(0.338 0.375)">
+      <rect id="Rectangle_1737" data-name="Rectangle 1737" width="4" height="20" transform="translate(700.045 501.625) rotate(54.975)" fill="#f5f5f5"/>
+      <rect id="Rectangle_1736" data-name="Rectangle 1736" width="2" height="20" transform="translate(700.045 501.625) rotate(54.975)" fill="#888"/>
+    </g>
+  </g>
+</svg>

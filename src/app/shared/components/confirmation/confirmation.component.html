@@ -1,0 +1,19 @@
+<div class="confirm-outer">
+  <div class="text-center">
+    <div class="fw-7 font-18">{{ data.title }}</div>
+    <div class="fw-5 font-14 mt-3 c-lightgrey">
+      {{ data.description }}
+    </div>
+  </div>
+  <div class="justify-center mt-5">
+    <button
+      (click)="dialogRef.close(false)"
+      class="theme-btn border mr-3 cursor"
+    >
+      BACK
+    </button>
+    <button (click)="dialogRef.close(true)" class="theme-btn primary cursor">
+      CONTINUE
+    </button>
+  </div>
+</div>

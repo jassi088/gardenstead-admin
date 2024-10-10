@@ -1,0 +1,123 @@
+$primary-color: #173d3d;
+$blue: #00b3ff;
+$black: #000000;
+$l-black: #000000a8;
+$white: #ffffff;
+$l-grey: #888888;
+$yellow: #fbae2c;
+$p-green: #00c292;
+$red: #a43f38;
+$grey: #676767;
+$grey5: rgba(74, 74, 74, 0.5);
+$grey6: rgba(19, 15, 38, 1);
+$grey7: rgba(112, 112, 112, 0.8);
+$grey09: rgba(58, 47, 60, 0.9);
+$black-l: rgba(201, 201, 201, 1);
+
+.grey-5 {
+  color: rgba(45, 45, 45, 1);
+}
+
+.grey4 {
+  color: rgba(58, 47, 60, 0.9);
+}
+
+.grey3 {
+  color: rgba(80, 80, 80, 1);
+}
+
+.black1 {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.grey1 {
+  color: (74, 74, 74, 1);
+}
+
+.black {
+  color: #000000 !important;
+}
+
+.l-black {
+  color: #000000a7 !important;
+}
+
+.grey {
+  color: #676767;
+}
+
+.grey2 {
+  color: rgb(58 47 60 / 50%);
+}
+
+.l-grey {
+  color: #888888;
+}
+
+.white {
+  color: #fff;
+}
+
+.yellow {
+  color: #fbae2c;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-white1 {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.p-green {
+  color: #00c292;
+}
+
+.red-c {
+  color: #ef5060;
+}
+
+.l-black {
+  color: #2d2d2d;
+}
+
+.white1 {
+  color: rgba(255, 255, 255, 1);
+}
+
+.apple-blossom {
+  color: #ae4541;
+}
+
+.dark-slate-gray {
+  color: rgba(68, 68, 68, 0.8);
+}
+
+.dark-shade-gray {
+  color: #2d2d2d;
+}
+
+.l-grey-light {
+  color: rgba(68, 68, 68, 0.7);
+}
+
+.l-grey-dark {
+  color: $grey09;
+}
+
+.grey5 {
+  color: $grey5;
+}
+
+.grey6 {
+  color: $grey6;
+}
+
+.grey7 {
+  color: $grey7;
+}
+
+.black-l {
+  color: $black-l;
+}

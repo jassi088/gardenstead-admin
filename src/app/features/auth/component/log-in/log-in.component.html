@@ -1,0 +1,57 @@
+<div class="justify-center align-center">
+  <div class="w-75">
+    <div class="font-38 fw-7 text-center">
+      {{ localization.pageTitle | localization }}
+    </div>
+    <div class="pt-4 text-center grey fw-5">
+      {{ localization.description | localization }}
+    </div>
+    <div class="pt-4">
+      <form class="form" [formGroup]="form" action="">
+        <form-field [errorControl]="form.get('email')" name="email address">
+          <label for="email" class="form-label fw-6">{{
+            localization.emailLabel | localization
+          }}</label>
+          <input
+            type="text"
+            [placeholder]="localization.emailLabel | localization"
+            name="email id"
+            formControlName="email"
+            class="form-control input"
+          />
+        </form-field>
+        <form-field [errorControl]="form.get('password')" name="password">
+          <label for="password" class="form-label fw-6">{{
+            localization.passwordLabel | localization
+          }}</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            name="password"
+            [placeholder]="localization.passwordLabel | localization"
+            class="form-control input"
+            #inputf
+          />
+        </form-field>
+      </form>
+      <!-- <div class="text-right black font-16 fw-6 cursor">
+        <span routerLink="../forget-password">
+          {{ localization.forgettxt | localization }}</span
+        >
+      </div> -->
+      <div class="text-center mt-5">
+        <button class="theme-btn theme-bg-color white" (click)="signIn()">
+          {{ localization.btnTxt | localization }}
+          <mat-spinner
+            class="btn-spinner"
+            *ngIf="isLoading"
+            [diameter]="16"
+            [strokeWidth]="2"
+          >
+          </mat-spinner>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

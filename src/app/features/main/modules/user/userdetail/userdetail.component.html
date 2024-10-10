@@ -1,0 +1,54 @@
+<page-container>
+  <page-header></page-header>
+  <page-content>
+    <div class="table mt-4">
+      <div class="p-abs">
+        <img
+          width="48px"
+          class="cursor"
+          src="assets/images/back-arrowicon.svg"
+          (click)="goBack()"
+          alt=""
+        />
+      </div>
+      <div class="justify-between mt-5">
+        <div class="font-weight-bold apple-blossom font-24">User details</div>
+        <div class="d-flex align-center">
+          <div class="current current-back">
+            <span
+              class="status align-center"
+              [ngClass]="getById.properties.status"
+              ><span class="dot align-center mr-2"></span
+              >{{ getById.properties.status | titlecase }}</span
+            >
+          </div>
+          <div class="ml-4">
+            <!-- <mat-icon
+              *ngIf="getById?.properties?.status != 'deleted'"
+              class="align-bottom"
+              (click)="$event.preventDefault(); $event.stopPropagation()"
+              [matMenuTriggerFor]="menu"
+              >more_vert</mat-icon
+            > -->
+            <!-- <mat-menu class="side-menu" #menu="matMenu">
+              <button
+                class="side-menu"
+                mat-menu-item
+                routerLink="../../edit-user/{{ getById.properties?.id }}"
+              >
+                Edit Details
+              </button>
+              <button
+                class="side-menu"
+                mat-menu-item
+                (click)="confirmation(getById.properties?.id)"
+              >
+                Delete User
+              </button>
+            </mat-menu> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </page-content>
+</page-container>

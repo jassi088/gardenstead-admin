@@ -1,0 +1,24 @@
+<!-- <mat-menu #countryCodes class="country-code-container" >
+    <header>
+      <input class="search-input" type="text" (click)="$event.stopPropagation();" placeholder="Search" (input)="search($event.target.value)" >
+    </header>
+    <hr>
+    <mat-list>
+      <mat-list-item matRipple (click)="onSelect(item)" class="dropdown-item" *ngFor="let item of filterCountries;let i = index;">
+        <img [src]="item?.flag" width="25px" class="mr-3" alt="">
+        +{{item?.callingCodes[0]}} {{item?.name | titlecase}}
+      </mat-list-item>  
+      <div class="p-3 text-center" *ngIf="!filterCountries?.length">
+        <span>No result found</span>
+      </div>
+    </mat-list>
+    
+  </mat-menu>
+  <button class="pre-append" type="button" mat-ripple [matMenuTriggerFor]="countryCodes" >
+    <span class="pt-1 countrycode">+{{value}}</span>
+     <img class="flag_img" *ngIf="selected?.flag" src="{{selected?.flag}}"/>
+      <img *ngIf="isWhite"  class="down_White cursor" src="../../../../assets/images/down_white.svg">
+    <img *ngIf="isBlack"  class="black_down cursor" src="../../../../assets/images/down.svg">
+    <img *ngIf="isprofile"  class="profile_down cursor" src="../../../../assets/images/down.svg">
+  
+  </button> -->

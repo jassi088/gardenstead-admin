@@ -1,0 +1,57 @@
+<div class="text-center">
+  <div class="font-20 fw-7">
+    {{ data?.data == "add" ? "Add Image" : "Update Image" }}
+  </div>
+  <div class="font-14 mt-2">
+    You can add new photo or select from previous uploaded files
+  </div>
+
+  <file-uploader
+    (onUploadFile)="add_Img($event)"
+    #uploader="FileUploader"
+    [successMessage]="'Image uploaded successfully'"
+  >
+  </file-uploader>
+  <image-cropper #cropper="ImageCropper"></image-cropper>
+  <select-file-btn
+    #selectFile
+    [fileUploader]="uploader"
+    [cropper]="cropper"
+    [uploaderOption]="{ fileType: 'image' }"
+  >
+  </select-file-btn>
+
+  <div class="row my-4 scroll">
+    <div class="mt-2 add-img cursor" (click)="selectFile.add_image()">
+      <img src="/assets/images/add-img.svg" />
+      <div class="fw-6 font-14 mt-1">Add Image</div>
+    </div>
+
+    <div class="fw-6 font-16 box-center mx-3">OR</div>
+    <div *ngFor="let item of upload?.items" class="cursor mr-3">
+      <div class="mt-2" *ngIf="item?.fileType == 'image'">
+        <div class="col-3">
+          <div class="p-relative" (click)="selectedImg(item)">
+            <img
+              class="upload-img"
+              [src]="item?.fileUrl || '/assets/images/placeholder_img.svg'"
+              onerror="'/assets/images/placeholder_img.svg'"
+            />
+            <img
+              src="/assets/images/red-check.svg"
+              *ngIf="selectItem?.id == item?.id"
+              class="red-check"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="justify-center">
+    <button class="theme-btn border" (click)="this.dialogRef.close(false)">
+      Back
+    </button>
+    <button class="theme-btn red ml-3" (click)="next()">Next</button>
+  </div>
+</div>
