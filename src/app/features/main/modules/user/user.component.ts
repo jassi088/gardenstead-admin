@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '@core/services/app.service';
 import { Page } from '@http-handler/common/contracts/page';
 import { Profile } from '@models/profile.model';
@@ -14,7 +14,6 @@ import { ProfileService } from 'src/app/service/profile.service';
 })
 export class UserComponent implements OnInit {
   profileId: string | undefined;
-
   status = [
     {
       value: 'active',
@@ -33,7 +32,6 @@ export class UserComponent implements OnInit {
       label: 'Deleted',
     },
   ];
-
   profiles: Page<Profile> = new Page({
     api: this.profileService.profiles,
     properties: new Profile(),
@@ -43,16 +41,15 @@ export class UserComponent implements OnInit {
     ],
     pageSize: 10,
   });
-
   constructor(
     public dialog: MatDialog,
     private profileService: ProfileService,
     private appService: AppService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private route: Router
   ) {
     this.fetch();
   }
-
   async fetch() {
     try {
       await this.profiles.fetch();
@@ -60,10 +57,8 @@ export class UserComponent implements OnInit {
       this.appService.toster(error);
     }
   }
-
   ngOnInit() {}
-
-  confirmation(id: any) {
+  confirmationDelete(id: string) {
     this.dialog
       .open(ConfirmationComponent, {
         autoFocus: false,
@@ -78,20 +73,21 @@ export class UserComponent implements OnInit {
       .afterClosed()
       .subscribe((result) => {
         if (result) {
-          // this.profileService.profiles
-          //   .remove(id)
-          //   .then(() => {
-          //     this.appService.toster('User deleted successfully.');
-          //     this.fetch();
-          //   })
-          //   .catch((error) => {
-          //     this.appService.toster(error);
-          //   });
+          let body: any = {};
+          body.status = 'deleted';
+          this.profileService.profiles
+            .update(id, body)
+            .then(() => {
+              this.appService.toster('User deleted successfully');
+              this.fetch();
+            })
+            .catch((error) => {
+              this.appService.toster(error);
+            });
         }
       });
   }
-
-  confirmationStatus(id: any, status: any) {
+  confirmationStatus(id: string, status: string) {
     this.dialog
       .open(ConfirmationComponent, {
         autoFocus: false,
@@ -99,30 +95,44 @@ export class UserComponent implements OnInit {
         width: '340px',
         height: '244px',
         data: {
-          title: `${status == 'active' ? 'Active' : 'Inactive'} User`,
+          title: `${
+            status == 'active'
+              ? 'Active'
+              : status == 'blocked'
+              ? 'Block'
+              : 'Inactive'
+          } User`,
           description: `Are you sure you want to ${
-            status == 'active' ? 'active' : 'inactive'
+            status == 'active'
+              ? 'active'
+              : status == 'blocked'
+              ? 'block'
+              : 'inactive'
           } this user?`,
         },
       })
       .afterClosed()
       .subscribe((result) => {
         if (result) {
-          // let body: any = {};
-          // body.status = status;
-          // this.profileService.profiles
-          //   .update(id, body)
-          //   .then(() => {
-          //     this.appService.toster(
-          //       `User ${
-          //         status == 'active' ? 'active' : 'inactive'
-          //       } successfully`
-          //     );
-          //     this.fetch();
-          //   })
-          //   .catch((error) => {
-          //     this.appService.toster(error);
-          //   });
+          let body: any = {};
+          body.status = status;
+          this.profileService.profiles
+            .update(id, body)
+            .then(() => {
+              this.appService.toster(
+                `User ${
+                  status == 'active'
+                    ? 'active'
+                    : status == 'blocked'
+                    ? 'blocked'
+                    : 'inactive'
+                } successfully`
+              );
+              this.fetch();
+            })
+            .catch((error) => {
+              this.appService.toster(error);
+            });
         }
       });
   }

@@ -6,6 +6,7 @@ export class Profile {
   fullName!: string;
   coverImgUrl!: string;
   location!: string;
+  zone!: Zone;
   status!: string;
   locationCoordinates!: LocationCoordinates;
   tags!: string[];
@@ -19,6 +20,14 @@ export class Profile {
   topics!: Topic[];
   gardeners!: Profile[];
   user!: User;
+}
+
+export class Zone {
+  province!: string;
+  city!: string;
+  zone!: string;
+  temperature!: string;
+  coordinates!: string;
 }
 
 export class LocationCoordinates {

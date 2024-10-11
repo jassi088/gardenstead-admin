@@ -44,9 +44,14 @@
         <table>
           <thead>
             <tr>
-              <th class="w-20">USER DETAILS</th>
+              <th>NAME</th>
+              <th>USERNAME</th>
               <th>EMAIL</th>
-              <th class="center">CURRENT STATUS</th>
+              <th>FOLLOWING</th>
+              <th>FOLLOWERS</th>
+              <th>LOCATION</th>
+              <th>ZONE</th>
+              <th class="center">STATUS</th>
             </tr>
           </thead>
 
@@ -64,7 +69,26 @@
                 </div>
               </td>
               <td>
+                <div class="align-center">
+                  <div class="font-13 black pl-2 cursor break-word">
+                    {{ item?.username || "--" }}
+                  </div>
+                </div>
+              </td>
+              <td>
                 <span class="txt">{{ item?.user?.email || "--" }}</span>
+              </td>
+              <td>
+                <span class="txt">{{ item?.following }}</span>
+              </td>
+              <td>
+                <span class="txt">{{ item?.followers }}</span>
+              </td>
+              <td>
+                <span class="txt">{{ item?.location || "--" }}</span>
+              </td>
+              <td>
+                <span class="txt">{{ item?.zone?.zone || "--" }}</span>
               </td>
               <td>
                 <div class="box-center">
@@ -91,25 +115,33 @@
                   </button> -->
                   <button
                     class="side-menu"
-                    *ngIf="item?.status == 'active'"
+                    *ngIf="item?.status === 'active'"
                     mat-menu-item
-                    (click)="confirmationStatus(item?.id, 'inactive')"
+                    (click)="confirmationStatus(item.id, 'inactive')"
                   >
                     Inactive
                   </button>
                   <button
                     class="side-menu"
-                    *ngIf="item?.status != 'active'"
+                    *ngIf="item?.status !== 'active'"
                     mat-menu-item
-                    (click)="confirmationStatus(item?.id, 'active')"
+                    (click)="confirmationStatus(item.id, 'active')"
                   >
                     Active
+                  </button>
+                  <button
+                    class="side-menu"
+                    *ngIf="item?.status === 'active'"
+                    mat-menu-item
+                    (click)="confirmationStatus(item.id, 'blocked')"
+                  >
+                    Block
                   </button>
 
                   <button
                     class="side-menu"
                     mat-menu-item
-                    (click)="confirmation(item?.id)"
+                    (click)="confirmationDelete(item.id)"
                   >
                     Delete User
                   </button>
